@@ -35,9 +35,7 @@ class WorkerTest extends \PHPUnit_Framework_TestCase {
 		$connection->expects($this->once())->method('channel')->will($this->returnValue($channel));
 		$dispatcher = $this->getMockBuilder('\dmerten\MessageQueue\Worker\Dispatcher\Dispatcher')->disableOriginalConstructor()->getMock();
 		$dispatcher->expects($this->once())->method('dispatch')->will($this->throwException(new \RuntimeException()));
-		$logger = $this->getMockBuilder('\dmerten\Logger\Console')->getMock();
-		$logger->expects($this->exactly(4))->method('log');
-		$worker = new Worker($connection, $dispatcher, $logger);
+		$worker = new Worker($connection, $dispatcher);
 
 		$message = $this->getMockBuilder('\PhpAmqpLib\Message\AMQPMessage')->disableOriginalConstructor()->getMock();
 
