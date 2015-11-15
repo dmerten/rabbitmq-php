@@ -1,12 +1,14 @@
 <?php
 namespace dmerten\MessageQueue;
+
 use dmerten\MessageQueue\Worker\Dispatcher\InvalidEventException;
 
 /**
  *
  * @author Dirk Merten
  */
-abstract class Listener {
+abstract class Listener
+{
 
 	/**
 	 * returns  __NAMESPACE_\__CLASS__
@@ -28,7 +30,8 @@ abstract class Listener {
 	 * @return mixed
 	 * @throws InvalidEventException
 	 */
-	public function dispatch(Event $event) {
+	public function dispatch(Event $event)
+	{
 		if ($event->getType() !== $this->getEventType()) {
 			throw new InvalidEventException();
 		}

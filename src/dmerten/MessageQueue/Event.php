@@ -12,7 +12,8 @@ namespace dmerten\MessageQueue;
  *
  * @package dmerten\MessageQueue\Task
  */
-abstract class Event {
+abstract class Event
+{
 	/**
 	 * @var array
 	 */
@@ -23,21 +24,24 @@ abstract class Event {
 	 *
 	 * @param array $params
 	 */
-	public function __construct(array $params = []) {
+	public function __construct(array $params = [])
+	{
 		$this->params = $params;
 	}
 
 	/**
 	 * @return int
 	 */
-	public function getType() {
+	public function getType()
+	{
 		return get_class($this);
 	}
 
 	/**
 	 * @return array
 	 */
-	public function getParams() {
+	public function getParams()
+	{
 		return $this->params;
 	}
 

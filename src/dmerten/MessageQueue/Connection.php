@@ -1,5 +1,6 @@
 <?php
 namespace dmerten\MessageQueue;
+
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
@@ -7,7 +8,8 @@ use PhpAmqpLib\Connection\AMQPStreamConnection;
  *
  * @author Dirk Merten
  */
-abstract class Connection {
+abstract class Connection
+{
 
 	/**
 	 * @var AMQPStreamConnection
@@ -22,7 +24,8 @@ abstract class Connection {
 	/**
 	 * @param AMQPStreamConnection $connection
 	 */
-	public function __construct(AMQPStreamConnection $connection) {
+	public function __construct(AMQPStreamConnection $connection)
+	{
 		$this->connection = $connection;
 		$this->configureChannel();
 	}
@@ -30,7 +33,8 @@ abstract class Connection {
 	/**
 	 * @return void
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		$this->channel->close();
 		$this->connection->close();
 	}
@@ -38,7 +42,8 @@ abstract class Connection {
 	/**
 	 * @return void
 	 */
-	protected function configureChannel() {
+	protected function configureChannel()
+	{
 		$this->channel = $this->connection->channel();
 	}
 

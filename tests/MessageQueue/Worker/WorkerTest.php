@@ -9,9 +9,11 @@ namespace tests\dmerten\MessageQueue\Worker;
 
 use dmerten\MessageQueue\Worker\Worker;
 
-class WorkerTest extends \PHPUnit_Framework_TestCase {
+class WorkerTest extends \PHPUnit_Framework_TestCase
+{
 
-	public function testDispatch() {
+	public function testDispatch()
+	{
 		$connection = $this->getMockBuilder('\PhpAmqpLib\Connection\AMQPStreamConnection')->disableOriginalConstructor()->getMock();
 		$channel = $this->getMockBuilder('\PhpAmqpLib\Channel\AMQPChannel')->disableOriginalConstructor()->getMock();
 
@@ -28,7 +30,8 @@ class WorkerTest extends \PHPUnit_Framework_TestCase {
 		$worker->dispatch($message);
 	}
 
-	public function testDispatchFailed() {
+	public function testDispatchFailed()
+	{
 		$connection = $this->getMockBuilder('\PhpAmqpLib\Connection\AMQPStreamConnection')->disableOriginalConstructor()->getMock();
 		$channel = $this->getMockBuilder('\PhpAmqpLib\Channel\AMQPChannel')->disableOriginalConstructor()->getMock();
 
@@ -47,7 +50,9 @@ class WorkerTest extends \PHPUnit_Framework_TestCase {
 
 }
 
-Class Foo {
-	public function basic_ack() {
+Class Foo
+{
+	public function basic_ack()
+	{
 	}
 }

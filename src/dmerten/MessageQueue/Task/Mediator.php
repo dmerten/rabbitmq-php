@@ -16,13 +16,15 @@ use PhpAmqpLib\Message\AMQPMessage;
  *
  * @package dmerten\MessageQueue\Task
  */
-class Mediator extends Connection {
+class Mediator extends Connection
+{
 
 	/**
 	 * @param $queueName
 	 * @param Event $event
 	 */
-	public function sendEvent($queueName, Event $event) {
+	public function sendEvent($queueName, Event $event)
+	{
 		$this->channel->basic_publish(new AMQPMessage(serialize($event)), '', $queueName);
 	}
 
